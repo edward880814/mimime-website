@@ -3,10 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>覓謐me.169｜手作工作室</title>
-  <meta name="description" content="療癒系手作：寵物窩、胖寶包、酒精墨水、水晶掛畫、海浪 DIY。台中西區｜新北板橋｜預約體驗課程。" />
+  <title>買譜 me.169｜手作工作室</title>
+  <meta name="description" content="療癒系手作工作室。台中西區｜新北板橋｜預約制。" />
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -17,27 +16,66 @@
 <body>
   <header class="site-header" id="top">
     <div class="container header-inner">
-      <span class="brand-mark">
-        <img src="./assets/icons/mimime-logo.png" alt="覓謐me.169">
-      </span>       
+      <a class="brand" href="./index.html" aria-label="回到首頁">
+        <span class="brand-mark">me</span>
+        <span class="brand-name">買譜 me.169</span>
+      </a>
 
+      <!-- Desktop nav -->
       <nav class="nav" aria-label="主選單">
-        <a href="#services">手作項目</a>
-        <a href="#workshops">體驗課程</a>
+        <!-- ✅ 改成可點擊 dropdown（不再 hover），選項直接跳頁 -->
+        <div class="dropdown" id="craftDropdown">
+          <button class="dropbtn" id="craftBtn" type="button" aria-haspopup="true" aria-expanded="false">
+            手作體驗
+            <span class="chev" aria-hidden="true">▾</span>
+          </button>
+
+          <div class="menu" id="craftMenu" role="menu" aria-label="手作體驗選單">
+            <a role="menuitem" href="./pages/pet-house.html">寵物窩</a>
+            <a role="menuitem" href="./pages/chubby-bag.html">胖寶包</a>
+            <a role="menuitem" href="./pages/cloud-pillow.html">雲朵抱枕</a>
+            <a role="menuitem" href="./pages/fluid-art.html">流體藝術</a>
+            <a role="menuitem" href="./pages/alcohol-ink.html">酒精墨水</a>
+            <a role="menuitem" href="./pages/crystal-art.html">水晶掛畫</a>
+            <a role="menuitem" href="./pages/gold-foil.html">金箔畫</a>
+            <a role="menuitem" href="./pages/drum.html">空靈鼓</a>
+            <a role="menuitem" href="./pages/dot-mandala.html">點點曼陀羅</a>
+            <a role="menuitem" href="./pages/ocean-diy.html">海洋手作</a>
+          </div>
+        </div>
+
         <a href="#gallery">作品集</a>
         <a href="#locations">據點</a>
         <a href="#faq">FAQ</a>
         <a class="btn btn-small" href="#contact">聯絡</a>
       </nav>
 
+      <!-- Mobile hamburger -->
       <button class="nav-toggle" id="navToggle" aria-label="開啟選單" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
 
+    <!-- Mobile nav -->
     <div class="mobile-nav" id="mobileNav" hidden>
-      <a href="#services">手作項目</a>
-      <a href="#workshops">體驗課程</a>
+      <button class="mobile-accordion" id="mobileCraftToggle" type="button" aria-expanded="false">
+        手作體驗
+        <span class="chev" aria-hidden="true">▾</span>
+      </button>
+
+      <div class="mobile-subnav" id="mobileCraftMenu" hidden>
+        <a href="./pages/pet-house.html">寵物窩</a>
+        <a href="./pages/chubby-bag.html">胖寶包</a>
+        <a href="./pages/cloud-pillow.html">雲朵抱枕</a>
+        <a href="./pages/fluid-art.html">流體藝術</a>
+        <a href="./pages/alcohol-ink.html">酒精墨水</a>
+        <a href="./pages/crystal-art.html">水晶掛畫</a>
+        <a href="./pages/gold-foil.html">金箔畫</a>
+        <a href="./pages/drum.html">空靈鼓</a>
+        <a href="./pages/dot-mandala.html">點點曼陀羅</a>
+        <a href="./pages/ocean-diy.html">海洋手作</a>
+      </div>
+
       <a href="#gallery">作品集</a>
       <a href="#locations">據點</a>
       <a href="#faq">FAQ</a>
@@ -53,8 +91,8 @@
           <p class="pill">台中西區｜新北板橋｜預約制工作室</p>
           <h1>把日常的疲憊，<br/>做成一件溫柔的作品。</h1>
           <p class="lead">
-            療癒系手作：寵物窩、胖寶包、酒精墨水、水晶掛畫、海浪 DIY。
-            讓你在創作裡慢慢呼吸、慢慢放鬆。
+            這裡是療癒系手作工作室：你可以選擇不同主題的體驗課程，
+            也可以私訊討論作品訂製與團體包場。
           </p>
 
           <div class="hero-actions">
@@ -77,7 +115,6 @@
         </div>
 
         <div class="hero-visual" aria-hidden="true">
-          <!-- 你之後把這張換成自己的主視覺 -->
           <div class="image-card">
             <img src="./assets/images/hero.jpg" alt="" />
           </div>
@@ -87,90 +124,12 @@
       </div>
     </section>
 
-    <!-- Services -->
-    <section class="section" id="services">
-      <div class="container">
-        <div class="section-head">
-          <h2>手作項目</h2>
-          <p>挑一個你今天想被療癒的方式。</p>
-        </div>
-
-        <div class="grid cards-5">
-          <article class="card">
-            <h3>寵物窩</h3>
-            <p>給毛孩一個安心的小宇宙，也給自己一段溫柔的時間。</p>
-          </article>
-          <article class="card">
-            <h3>胖寶包</h3>
-            <p>軟萌厚實的手作包包，背著就像把可愛帶出門。</p>
-          </article>
-          <article class="card">
-            <h3>酒精墨水</h3>
-            <p>流動的色彩在紙上呼吸，每一張都獨一無二。</p>
-          </article>
-          <article class="card">
-            <h3>水晶掛畫</h3>
-            <p>亮晶晶的細節，適合做成禮物或自己的收藏。</p>
-          </article>
-          <article class="card">
-            <h3>海浪 DIY</h3>
-            <p>把海帶回家：透明感、層次感、很容易上癮。</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Workshops -->
-    <section class="section soft-bg" id="workshops">
-      <div class="container">
-        <div class="section-head">
-          <h2>體驗課程</h2>
-          <p>不用有基礎，跟著步驟做就能完成。適合第一次想開始的人。</p>
-        </div>
-
-        <div class="grid cards-3">
-          <article class="card media">
-            <div class="thumb">
-              <img src="./assets/images/workshop-01.jpg" alt="課程示意圖" loading="lazy">
-            </div>
-            <div class="card-body">
-              <h3>療癒海浪板</h3>
-              <p>約 90–120 分鐘｜成品可帶走｜適合朋友/情侶</p>
-              <a class="link" href="https://portaly.cc/mimime.169" target="_blank" rel="noreferrer">查看時段 →</a>
-            </div>
-          </article>
-
-          <article class="card media">
-            <div class="thumb">
-              <img src="./assets/images/workshop-02.jpg" alt="課程示意圖" loading="lazy">
-            </div>
-            <div class="card-body">
-              <h3>酒精墨水畫</h3>
-              <p>約 60–90 分鐘｜每張都是「流動的運氣」</p>
-              <a class="link" href="https://portaly.cc/mimime.169" target="_blank" rel="noreferrer">查看時段 →</a>
-            </div>
-          </article>
-
-          <article class="card media">
-            <div class="thumb">
-              <img src="./assets/images/workshop-03.jpg" alt="課程示意圖" loading="lazy">
-            </div>
-            <div class="card-body">
-              <h3>團體/企業包場</h3>
-              <p>可客製主題、時間與人數｜含場地與講師</p>
-              <a class="link" href="#contact">洽詢合作 →</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
     <!-- Gallery -->
     <section class="section" id="gallery">
       <div class="container">
         <div class="section-head">
           <h2>作品集</h2>
-          <p>先用圖片把你抱一下。你可以把這裡做成分類：寵物窩 / 胖寶包 / 畫作。</p>
+          <p>先用圖片把你抱一下。</p>
         </div>
 
         <div class="gallery">
@@ -246,10 +205,6 @@
             <summary>可以團體或企業包場嗎？</summary>
             <p>可以。人數、主題、時間都能討論，請到下方聯絡我們。</p>
           </details>
-          <details>
-            <summary>取消或改期規則？</summary>
-            <p>你可以填寫：提前幾天可改期、當日取消是否保留材料費等（之後我也能幫你擬一版）。</p>
-          </details>
         </div>
       </div>
     </section>
@@ -270,7 +225,7 @@
               <a class="btn btn-ghost" href="https://www.instagram.com/mimime.169/" target="_blank" rel="noreferrer">Instagram</a>
               <a class="btn btn-ghost" href="#" aria-disabled="true">LINE（之後換成你的連結）</a>
             </div>
-            <p class="muted small">小提醒：把所有對外連結集中在這裡，客人會覺得很安心好找。</p>
+            <p class="muted small">把所有對外連結集中在這裡，客人會覺得很安心好找。</p>
           </div>
 
           <div class="card">
@@ -290,7 +245,7 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>© <span id="year"></span> 覓謐me.169 ｜療癒系手作工作室</p>
+      <p>© <span id="year"></span> 買譜 me.169 ｜療癒系手作工作室</p>
       <a class="link" href="#top">回到上方 ↑</a>
     </div>
   </footer>
