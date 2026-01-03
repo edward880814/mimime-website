@@ -230,3 +230,61 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+// ===== 地點 Tabs + 複製地址 =====
+const tabs = document.querySelectorAll(".tab[data-loc]");
+const panels = document.querySelectorAll(".loc-panel");
+const mapFrame = document.getElementById("mapFrame");
+
+// 你之後把 embed 連結換成正確的
+const MAP_EMBEDS = {
+  taichung: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3641.0334912505296!2d120.65635716056137!3d24.135461946692804!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d69d5588885%3A0xbaf8e94fa0140e44!2z6KaT6KyQbWUuMTY5!5e0!3m2!1szh-TW!2stw!4v1767441305103!5m2!1szh-TW!2stw",
+  banqiao: "",
+};
+
+function setActiveLocation(key) {
+  tabs.forEach(t => {
+    const active = t.dataset.loc === key;
+    t.classList.toggle("is-active", active);
+    t.setAttribute("aria-selected", String(active));
+  });
+
+  panels.forEach(p => {
+    const active = p.id === `loc-${key}`;
+    p.classList.toggle("is-active", active);
+  });
+
+  if (mapFrame && MAP_EMBEDS[key]) {
+    mapFrame.src = MAP_EMBEDS[key];
+  }
+}
+
+tabs.forEach(t => {
+  t.addEventListener("click", () => setActiveLocation(t.dataset.loc));
+});
+
+// 複製地址
+document.querySelectorAll("[data-copy]").forEach(btn => {
+  btn.addEventListener("click", async () => {
+    const sel = btn.getAttribute("data-copy");
+    const el = sel ? document.querySelector(sel) : null;
+    if (!el) return;
+
+    const text = el.textContent.trim();
+    try {
+      await navigator.clipboard.writeText(text);
+      btn.textContent = "已複製";
+      setTimeout(() => (btn.textContent = "複製"), 900);
+    } catch {
+      // fallback
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand("copy");
+      ta.remove();
+      btn.textContent = "已複製";
+      setTimeout(() => (btn.textContent = "複製"), 900);
+    }
+  });
+});

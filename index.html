@@ -45,7 +45,7 @@
         </div>
 
         <a href="#gallery">作品集</a>
-        <a href="#locations">據點</a>
+        <a href="#location">地點</a>
         <a href="#faq">FAQ</a>
         <a class="btn btn-small" href="#contact">聯絡</a>
       </nav>
@@ -77,7 +77,7 @@
       </div>
 
       <a href="#gallery">作品集</a>
-      <a href="#locations">據點</a>
+      <a href="#location">地點</a>
       <a href="#faq">FAQ</a>
       <a href="#contact">聯絡</a>
     </div>
@@ -395,33 +395,105 @@
     </section>
 
     <!-- Locations -->
-    <section class="section soft-bg" id="locations">
+    <section class="section soft-bg" id="location">
       <div class="container">
         <div class="section-head">
-          <h2>據點與預約</h2>
-          <p>採預約制，讓每一位來的人都能舒服地創作。</p>
+          <h2>地點</h2>
+          <p>採預約制，讓每一位來的人都能舒服地創作。選擇地點後右側會顯示地圖。</p>
         </div>
-
-        <div class="grid cards-2">
-          <article class="card">
-            <h3>台中｜西區</h3>
-            <p class="muted">（範例地址）西區五權西六街 169 號</p>
-            <ul class="list">
-              <li>預約制：請先線上預約</li>
-              <li>適合：個人放鬆／朋友／親子</li>
-              <li>交通：可補充停車/公車資訊</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <h3>新北｜板橋</h3>
-            <p class="muted">（填你的實際資訊：捷運站、路線提示）</p>
-            <ul class="list">
-              <li>預約制：固定開課日/時段</li>
-              <li>適合：小團體、企業包場</li>
-              <li>交通：可補充捷運/公車資訊</li>
-            </ul>
-          </article>
+    
+        <div class="location-wrap">
+          <!-- Left: tabs + info -->
+          <div class="location-left">
+            <div class="tabs" role="tablist" aria-label="地點切換">
+              <button class="tab is-active" type="button" role="tab"
+                      aria-selected="true" aria-controls="loc-taichung" id="tab-taichung"
+                      data-loc="taichung">
+                台中｜西區
+              </button>
+              <button class="tab" type="button" role="tab"
+                      aria-selected="false" aria-controls="loc-banqiao" id="tab-banqiao"
+                      data-loc="banqiao">
+                新北｜板橋
+              </button>
+            </div>
+    
+            <div class="loc-panel is-active" id="loc-taichung" role="tabpanel" aria-labelledby="tab-taichung">
+              <div class="card">
+                <h3>台中｜西區</h3>
+                <p class="muted">預約制工作室（建議先私訊/線上預約確認時段）</p>
+    
+                <div class="loc-row">
+                  <div class="loc-label">地址</div>
+                  <div class="loc-value">
+                    <span id="addr-taichung">台中市西區五權西六街 169 號</span>
+                    <button class="mini-btn" type="button" data-copy="#addr-taichung">複製</button>
+                  </div>
+                </div>
+    
+                <div class="loc-row">
+                  <div class="loc-label">交通</div>
+                  <div class="loc-value">
+                    建議補上：附近停車場 / 公車站牌 / 地標（讓第一次來的人更安心）
+                  </div>
+                </div>
+    
+                <div class="loc-actions">
+                  <!-- 這裡放你的 Google Map 連結（之後換成真實網址） -->
+                  <a class="btn btn-ghost" id="openMapTaichung" href="https://maps.app.goo.gl/6kLLoZnb7htfpeHU9" target="_blank" rel="noreferrer">
+                    在 Google 地圖開啟
+                  </a>
+                  <a class="btn" href="https://portaly.cc/mimime.169" target="_blank" rel="noreferrer">
+                    立即預約 / 報名
+                  </a>
+                </div>
+              </div>
+            </div>
+    
+            <div class="loc-panel" id="loc-banqiao" role="tabpanel" aria-labelledby="tab-banqiao">
+              <div class="card">
+                <h3>新北｜板橋</h3>
+                <p class="muted">預約制｜小班制（可先私訊確認開課日）</p>
+    
+                <div class="loc-row">
+                  <div class="loc-label">地址</div>
+                  <div class="loc-value">
+                    <span id="addr-banqiao">新北市板橋區（請填入實際地址）</span>
+                    <button class="mini-btn" type="button" data-copy="#addr-banqiao">複製</button>
+                  </div>
+                </div>
+    
+                <div class="loc-row">
+                  <div class="loc-label">交通</div>
+                  <div class="loc-value">
+                    建議補上：最近捷運站 / 出口 / 步行時間（會大幅提升體驗感）
+                  </div>
+                </div>
+    
+                <div class="loc-actions">
+                  <a class="btn btn-ghost" id="openMapBanqiao" href="https://maps.app.goo.gl/uT74a6WZrFkSaDKFA" target="_blank" rel="noreferrer">
+                    在 Google 地圖開啟
+                  </a>
+                  <a class="btn" href="https://portaly.cc/mimime.169" target="_blank" rel="noreferrer">
+                    立即預約 / 報名
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Right: map -->
+          <div class="location-right">
+            <div class="map-card card">
+              <div class="map-head">
+                <div class="map-title">地圖</div>
+                <div class="map-sub muted">點左側地點切換</div>
+              </div>
+    
+              <!-- ✅ 先放 placeholder，你之後替換成真正的 Google Embed iframe -->
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3641.0334912505296!2d120.65635716056137!3d24.135461946692804!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d69d5588885%3A0xbaf8e94fa0140e44!2z6KaT6KyQbWUuMTY5!5e0!3m2!1szh-TW!2stw!4v1767441305103!5m2!1szh-TW!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
         </div>
       </div>
     </section>
