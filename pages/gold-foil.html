@@ -45,7 +45,7 @@
         <a href="../index.html#gallery">作品集</a>
         <a href="../index.html#location">地點</a>
         <a href="./faq.html">FAQ</a>
-        <a class="btn btn-small" href="../index.html#contact">聯絡</a>
+        <button class="btn btn-small js-open-contact" type="button">聯絡</button>
       </nav>
 
       <button class="nav-toggle" id="navToggle" aria-label="開啟選單" aria-expanded="false">
@@ -75,7 +75,7 @@
       <a href="../index.html#gallery">作品集</a>
       <a href="../index.html#location">地點</a>
       <a href="./faq.html">FAQ</a>
-      <a href="../index.html#contact">聯絡</a>
+      <button class="mobile-link js-open-contact" type="button">聯絡</button>
     </div>
   </header>
 
@@ -196,7 +196,65 @@
       <p>© <span id="year"></span> 買譜 me.169 ｜療癒系手作工作室</p>
       <a class="link" href="#top">回到上方 ↑</a>
     </div>
-  </footer>
+      </footer>
+  <!-- Contact Bubble (右下角訊息泡泡) -->
+  <div class="contact-bubble" id="contactBubble">
+    <button class="bubble-fab" id="bubbleFab" type="button" aria-label="開啟聯絡資訊" aria-expanded="false">
+      💬
+    </button>
+
+    <div class="bubble-panel" id="bubblePanel" role="dialog" aria-modal="false" aria-label="聯絡資訊" hidden>
+      <div class="bubble-head">
+        <div class="bubble-title">聯絡我</div>
+        <button class="bubble-close" id="bubbleClose" type="button" aria-label="關閉">✕</button>
+      </div>
+
+      <div class="bubble-body">
+        <p class="bubble-desc">想預約、合作或詢問主題，都可以從這裡找到我。</p>
+
+        <a class="bubble-link" href="https://www.instagram.com/mimime.169/" target="_blank" rel="noreferrer">
+          <span class="bubble-ico">IG</span>
+          <span>Instagram 私訊</span>
+          <span class="bubble-arrow">↗</span>
+        </a>
+
+        <a class="bubble-link" href="#" target="_blank" rel="noreferrer" aria-disabled="true">
+          <span class="bubble-ico">LINE</span>
+          <span>LINE（準備中）</span>
+          <span class="bubble-arrow">↗</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- Contact Bubble (右下角訊息泡泡) -->
+  <div class="contact-bubble" id="contactBubble">
+    <button class="bubble-fab" id="bubbleFab" type="button" aria-label="開啟聯絡資訊" aria-expanded="false">
+      💬
+    </button>
+
+    <div class="bubble-panel" id="bubblePanel" role="dialog" aria-modal="false" aria-label="聯絡資訊" hidden>
+      <div class="bubble-head">
+        <div class="bubble-title">聯絡我</div>
+        <button class="bubble-close" id="bubbleClose" type="button" aria-label="關閉">✕</button>
+      </div>
+
+      <div class="bubble-body">
+        <p class="bubble-desc">想預約、合作或詢問主題，都可以從這裡找到我。</p>
+
+        <a class="bubble-link" href="https://www.instagram.com/mimime.169/" target="_blank" rel="noreferrer">
+          <span class="bubble-ico">IG</span>
+          <span>Instagram 私訊</span>
+          <span class="bubble-arrow">↗</span>
+        </a>
+
+        <a class="bubble-link" href="#" target="_blank" rel="noreferrer" aria-disabled="true">
+          <span class="bubble-ico">LINE</span>
+          <span>LINE（準備中）</span>
+          <span class="bubble-arrow">↗</span>
+        </a>
+      </div>
+    </div>
+  </div>
 
   <script src="../js/main.js"></script>
 </body>
