@@ -128,26 +128,268 @@
     <section class="section" id="gallery">
       <div class="container">
         <div class="section-head">
-          <h2>作品集</h2>
-          <p>先用圖片把你抱一下。</p>
+          <h2>近期活動</h2>
+          <p>每月整理一次，把當月的手作時光存起來。點開卡片可看活動日期與更多照片。</p>
         </div>
 
-        <div class="gallery">
-          <img src="./assets/images/g-01.jpg" alt="作品照片" loading="lazy">
-          <img src="./assets/images/g-02.jpg" alt="作品照片" loading="lazy">
-          <img src="./assets/images/g-03.jpg" alt="作品照片" loading="lazy">
-          <img src="./assets/images/g-04.jpg" alt="作品照片" loading="lazy">
-          <img src="./assets/images/g-05.jpg" alt="作品照片" loading="lazy">
-          <img src="./assets/images/g-06.jpg" alt="作品照片" loading="lazy">
-          <img src="./assets/images/g-07.jpg" alt="作品照片" loading="lazy">
-          <img src="./assets/images/g-08.jpg" alt="作品照片" loading="lazy">
-          <img src="./assets/images/g-09.jpg" alt="作品照片" loading="lazy">
+        <!-- ✅ chips：點一下展開對應「精選分類 Accordion」 -->
+        <div class="filters" id="activityFilters" aria-label="精選分類快速跳轉">
+          <button class="chip is-active" data-target="acc-all" type="button">全部</button>
+          <button class="chip" data-target="acc-pet-house" type="button">寵物窩</button>
+          <button class="chip" data-target="acc-chubby-bag" type="button">胖寶包</button>
+          <button class="chip" data-target="acc-cloud-pillow" type="button">雲朵抱枕</button>
+          <button class="chip" data-target="acc-fluid-art" type="button">流體藝術</button>
+          <button class="chip" data-target="acc-alcohol-ink" type="button">酒精墨水</button>
+          <button class="chip" data-target="acc-crystal-art" type="button">水晶掛畫</button>
+          <button class="chip" data-target="acc-gold-foil" type="button">金箔畫</button>
+          <button class="chip" data-target="acc-drum" type="button">空靈鼓</button>
+          <button class="chip" data-target="acc-dot-mandala" type="button">點點曼陀羅</button>
+          <button class="chip" data-target="acc-ocean-diy" type="button">海洋手作</button>
         </div>
 
-        <div class="center">
-          <a class="btn btn-ghost" href="https://www.instagram.com/mimime.169/" target="_blank" rel="noreferrer">
-            去 IG 看更多
-          </a>
+        <!-- 活動卡片列表：每張卡片代表一次活動/一個月（點卡片開啟 modal） -->
+        <div class="activity-grid" id="activityGrid">
+          <button class="activity-card"
+            type="button"
+            data-category="ocean-diy"
+            data-title="海洋手作｜海浪托盤小聚"
+            data-date="2026-01-20"
+            data-images="./assets/images/ocean-diy/a1.jpg,./assets/images/ocean-diy/a2.jpg,./assets/images/ocean-diy/a3.jpg,./assets/images/ocean-diy/a4.jpg">
+            <div class="activity-thumb">
+              <img src="./assets/images/ocean-diy/a1.jpg" alt="海洋手作活動照片" loading="lazy">
+              <span class="badge">海洋手作</span>
+              <span class="date">2026/01/20</span>
+            </div>
+            <div class="activity-meta">
+              <div class="activity-title">海浪托盤小聚</div>
+              <div class="activity-sub">透明感與層次感，超療癒。</div>
+            </div>
+          </button>
+
+          <button class="activity-card"
+            type="button"
+            data-category="pet-house"
+            data-title="寵物窩｜冬日暖暖小班"
+            data-date="2025-12-18"
+            data-images="./assets/images/pet-house/a1.jpg,./assets/images/pet-house/a2.jpg,./assets/images/pet-house/a3.jpg">
+            <div class="activity-thumb">
+              <img src="./assets/images/pet-house/a1.jpg" alt="寵物窩活動照片" loading="lazy">
+              <span class="badge">寵物窩</span>
+              <span class="date">2025/12/18</span>
+            </div>
+            <div class="activity-meta">
+              <div class="activity-title">冬日暖暖小班</div>
+              <div class="activity-sub">做完直接想抱著睡。</div>
+            </div>
+          </button>
+
+          <button class="activity-card"
+            type="button"
+            data-category="alcohol-ink"
+            data-title="酒精墨水｜星空暈染"
+            data-date="2025-11-09"
+            data-images="./assets/images/alcohol-ink/a1.jpg,./assets/images/alcohol-ink/a2.jpg,./assets/images/alcohol-ink/a3.jpg,./assets/images/alcohol-ink/a4.jpg,./assets/images/alcohol-ink/a5.jpg">
+            <div class="activity-thumb">
+              <img src="./assets/images/alcohol-ink/a1.jpg" alt="酒精墨水活動照片" loading="lazy">
+              <span class="badge">酒精墨水</span>
+              <span class="date">2025/11/09</span>
+            </div>
+            <div class="activity-meta">
+              <div class="activity-title">星空暈染</div>
+              <div class="activity-sub">每張都是不可預期的美。</div>
+            </div>
+          </button>
+        </div>
+
+        <!-- ✅ 精選分類：Accordion（chips 會控制這裡） -->
+        <div class="section-head" style="margin-top:40px;">
+          <h2>精選分類</h2>
+          <p>每個項目挑 3–5 張代表作。點上面的分類可直接展開對應項目。</p>
+        </div>
+
+        <div class="accordion" id="featuredAccordion">
+          <details class="acc-item" id="acc-pet-house">
+            <summary class="acc-summary">
+              <span class="acc-title">寵物窩</span>
+              <span class="acc-meta">
+                <a class="link" href="./pages/pet-house.html" onclick="event.stopPropagation()">看介紹 →</a>
+                <span class="acc-icon" aria-hidden="true">▾</span>
+              </span>
+            </summary>
+            <div class="acc-content">
+              <div class="mini-grid">
+                <img src="./assets/images/pet-house/f1.jpg" alt="寵物窩精選照片" loading="lazy">
+                <img src="./assets/images/pet-house/f2.jpg" alt="寵物窩精選照片" loading="lazy">
+                <img src="./assets/images/pet-house/f3.jpg" alt="寵物窩精選照片" loading="lazy">
+              </div>
+            </div>
+          </details>
+
+          <details class="acc-item" id="acc-chubby-bag">
+            <summary class="acc-summary">
+              <span class="acc-title">胖寶包</span>
+              <span class="acc-meta">
+                <a class="link" href="./pages/chubby-bag.html" onclick="event.stopPropagation()">看介紹 →</a>
+                <span class="acc-icon" aria-hidden="true">▾</span>
+              </span>
+            </summary>
+            <div class="acc-content">
+              <div class="mini-grid">
+                <img src="./assets/images/chubby-bag/f1.jpg" alt="胖寶包精選照片" loading="lazy">
+                <img src="./assets/images/chubby-bag/f2.jpg" alt="胖寶包精選照片" loading="lazy">
+                <img src="./assets/images/chubby-bag/f3.jpg" alt="胖寶包精選照片" loading="lazy">
+              </div>
+            </div>
+          </details>
+
+          <details class="acc-item" id="acc-cloud-pillow">
+            <summary class="acc-summary">
+              <span class="acc-title">雲朵抱枕</span>
+              <span class="acc-meta">
+                <a class="link" href="./pages/cloud-pillow.html" onclick="event.stopPropagation()">看介紹 →</a>
+                <span class="acc-icon" aria-hidden="true">▾</span>
+              </span>
+            </summary>
+            <div class="acc-content">
+              <div class="mini-grid">
+                <img src="./assets/images/cloud-pillow/f1.jpg" alt="雲朵抱枕精選照片" loading="lazy">
+                <img src="./assets/images/cloud-pillow/f2.jpg" alt="雲朵抱枕精選照片" loading="lazy">
+                <img src="./assets/images/cloud-pillow/f3.jpg" alt="雲朵抱枕精選照片" loading="lazy">
+              </div>
+            </div>
+          </details>
+
+          <details class="acc-item" id="acc-fluid-art">
+            <summary class="acc-summary">
+              <span class="acc-title">流體藝術</span>
+              <span class="acc-meta">
+                <a class="link" href="./pages/fluid-art.html" onclick="event.stopPropagation()">看介紹 →</a>
+                <span class="acc-icon" aria-hidden="true">▾</span>
+              </span>
+            </summary>
+            <div class="acc-content">
+              <div class="mini-grid">
+                <img src="./assets/images/fluid-art/f1.jpg" alt="流體藝術精選照片" loading="lazy">
+                <img src="./assets/images/fluid-art/f2.jpg" alt="流體藝術精選照片" loading="lazy">
+                <img src="./assets/images/fluid-art/f3.jpg" alt="流體藝術精選照片" loading="lazy">
+              </div>
+            </div>
+          </details>
+
+          <details class="acc-item" id="acc-alcohol-ink">
+            <summary class="acc-summary">
+              <span class="acc-title">酒精墨水</span>
+              <span class="acc-meta">
+                <a class="link" href="./pages/alcohol-ink.html" onclick="event.stopPropagation()">看介紹 →</a>
+                <span class="acc-icon" aria-hidden="true">▾</span>
+              </span>
+            </summary>
+            <div class="acc-content">
+              <div class="mini-grid">
+                <img src="./assets/images/alcohol-ink/f1.jpg" alt="酒精墨水精選照片" loading="lazy">
+                <img src="./assets/images/alcohol-ink/f2.jpg" alt="酒精墨水精選照片" loading="lazy">
+                <img src="./assets/images/alcohol-ink/f3.jpg" alt="酒精墨水精選照片" loading="lazy">
+              </div>
+            </div>
+          </details>
+
+          <details class="acc-item" id="acc-crystal-art">
+            <summary class="acc-summary">
+              <span class="acc-title">水晶掛畫</span>
+              <span class="acc-meta">
+                <a class="link" href="./pages/crystal-art.html" onclick="event.stopPropagation()">看介紹 →</a>
+                <span class="acc-icon" aria-hidden="true">▾</span>
+              </span>
+            </summary>
+            <div class="acc-content">
+              <div class="mini-grid">
+                <img src="./assets/images/crystal-art/f1.jpg" alt="水晶掛畫精選照片" loading="lazy">
+                <img src="./assets/images/crystal-art/f2.jpg" alt="水晶掛畫精選照片" loading="lazy">
+                <img src="./assets/images/crystal-art/f3.jpg" alt="水晶掛畫精選照片" loading="lazy">
+              </div>
+            </div>
+          </details>
+
+          <details class="acc-item" id="acc-gold-foil">
+            <summary class="acc-summary">
+              <span class="acc-title">金箔畫</span>
+              <span class="acc-meta">
+                <a class="link" href="./pages/gold-foil.html" onclick="event.stopPropagation()">看介紹 →</a>
+                <span class="acc-icon" aria-hidden="true">▾</span>
+              </span>
+            </summary>
+            <div class="acc-content">
+              <div class="mini-grid">
+                <img src="./assets/images/gold-foil/f1.jpg" alt="金箔畫精選照片" loading="lazy">
+                <img src="./assets/images/gold-foil/f2.jpg" alt="金箔畫精選照片" loading="lazy">
+                <img src="./assets/images/gold-foil/f3.jpg" alt="金箔畫精選照片" loading="lazy">
+              </div>
+            </div>
+          </details>
+
+          <details class="acc-item" id="acc-drum">
+            <summary class="acc-summary">
+              <span class="acc-title">空靈鼓</span>
+              <span class="acc-meta">
+                <a class="link" href="./pages/drum.html" onclick="event.stopPropagation()">看介紹 →</a>
+                <span class="acc-icon" aria-hidden="true">▾</span>
+              </span>
+            </summary>
+            <div class="acc-content">
+              <div class="mini-grid">
+                <img src="./assets/images/drum/f1.jpg" alt="空靈鼓精選照片" loading="lazy">
+                <img src="./assets/images/drum/f2.jpg" alt="空靈鼓精選照片" loading="lazy">
+                <img src="./assets/images/drum/f3.jpg" alt="空靈鼓精選照片" loading="lazy">
+              </div>
+            </div>
+          </details>
+
+          <details class="acc-item" id="acc-dot-mandala">
+            <summary class="acc-summary">
+              <span class="acc-title">點點曼陀羅</span>
+              <span class="acc-meta">
+                <a class="link" href="./pages/dot-mandala.html" onclick="event.stopPropagation()">看介紹 →</a>
+                <span class="acc-icon" aria-hidden="true">▾</span>
+              </span>
+            </summary>
+            <div class="acc-content">
+              <div class="mini-grid">
+                <img src="./assets/images/dot-mandala/f1.jpg" alt="點點曼陀羅精選照片" loading="lazy">
+                <img src="./assets/images/dot-mandala/f2.jpg" alt="點點曼陀羅精選照片" loading="lazy">
+                <img src="./assets/images/dot-mandala/f3.jpg" alt="點點曼陀羅精選照片" loading="lazy">
+              </div>
+            </div>
+          </details>
+
+          <details class="acc-item" id="acc-ocean-diy">
+            <summary class="acc-summary">
+              <span class="acc-title">海洋手作</span>
+              <span class="acc-meta">
+                <a class="link" href="./pages/ocean-diy.html" onclick="event.stopPropagation()">看介紹 →</a>
+                <span class="acc-icon" aria-hidden="true">▾</span>
+              </span>
+            </summary>
+            <div class="acc-content">
+              <div class="mini-grid">
+                <img src="./assets/images/ocean-diy/f1.jpg" alt="海洋手作精選照片" loading="lazy">
+                <img src="./assets/images/ocean-diy/f2.jpg" alt="海洋手作精選照片" loading="lazy">
+                <img src="./assets/images/ocean-diy/f3.jpg" alt="海洋手作精選照片" loading="lazy">
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- 活動 Modal：點活動卡片會開啟 -->
+      <div class="modal" id="activityModal" aria-hidden="true">
+        <div class="modal-backdrop" data-close="true"></div>
+        <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+          <button class="modal-close" type="button" aria-label="關閉" data-close="true">✕</button>
+          <div class="modal-head">
+            <h3 id="modalTitle">活動</h3>
+            <p class="modal-date" id="modalDate"></p>
+          </div>
+          <div class="modal-gallery" id="modalGallery"></div>
         </div>
       </div>
     </section>
@@ -250,6 +492,7 @@
     </div>
   </footer>
 
+  <!-- 放在 body 最後 OK -->
   <script src="./js/main.js"></script>
 </body>
 </html>
