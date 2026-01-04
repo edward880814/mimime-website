@@ -67,22 +67,20 @@ document.addEventListener("DOMContentLoaded", () => {
       mobileNav.hidden = expanded;
     });
 
-    // 點選任何 mobile nav 連結後自動收起
-// 點選任何 mobile nav 連結/按鈕後自動收起
-  mobileNav.querySelectorAll("a, button").forEach((el) => {
-    el.addEventListener("click", () => {
-      closeMobileNav();
+        // ✅ 點選任何 mobile nav 連結後自動收起（只收 a，不收 button）
+    mobileNav.querySelectorAll("a").forEach((el) => {
+      el.addEventListener("click", () => {
+        closeMobileNav();
 
-      // 同時收起手作體驗子選單（如果有開）
-      const craftMenu2 = document.getElementById("mobileCraftMenu");
-      const craftToggle2 = document.getElementById("mobileCraftToggle");
-      if (craftMenu2 && craftToggle2) {
-        craftToggle2.setAttribute("aria-expanded", "false");
-        craftMenu2.hidden = true;
-      }
+        // 同時收起手作體驗子選單（如果有開）
+        const craftMenu2 = document.getElementById("mobileCraftMenu");
+        const craftToggle2 = document.getElementById("mobileCraftToggle");
+        if (craftMenu2 && craftToggle2) {
+          craftToggle2.setAttribute("aria-expanded", "false");
+          craftMenu2.hidden = true;
+        }
+      });
     });
-});
-
   }
 
   /**
