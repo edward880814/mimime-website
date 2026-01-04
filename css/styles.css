@@ -99,6 +99,14 @@ a{ color:inherit; text-decoration:none; }
   color:var(--muted);
 }
 
+/* ✅ 保證 hidden 一定有效（避免被 media query 的 display:grid 影響） */
+.mobile-nav[hidden]{
+  display:none !important;
+}
+.menu[hidden]{
+  display:none !important;
+}
+
 /* Buttons */
 .btn{
   display:inline-flex;
@@ -170,8 +178,10 @@ a{ color:inherit; text-decoration:none; }
 }
 
 .menu.open{
-  display:block;          /* ✅ 用 JS 控制展開 */
+  display:block;
+  pointer-events:auto;
 }
+
 
 .menu a{
   display:block;
@@ -528,7 +538,7 @@ a{ color:inherit; text-decoration:none; }
   position:fixed;
   inset:0;
   display:none;
-  z-index:999;
+  z-index:2000;
 }
 
 .modal.is-open{ display:block; }
